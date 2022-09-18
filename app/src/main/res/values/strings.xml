@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">AiBookSearcher</string>
+    <string name="recognitionHint1">도서를 검색하기 위해\n버튼을 눌러주세요.</string>
+</resources>
