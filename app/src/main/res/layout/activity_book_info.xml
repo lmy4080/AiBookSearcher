@@ -47,12 +47,13 @@
                     app:layout_constraintTop_toBottomOf="@id/iv_thumbnail"
                     app:layout_constraintBottom_toBottomOf="parent">
 
-                    <ImageView
+                    <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/iv_bookMark"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        app:srcCompat="@drawable/ic_outline_star_outline_24"
+                        android:src="@{book.isBooked == true ? @drawable/ic_baseline_star_24 : @drawable/ic_outline_star_outline_24}"
+                        android:tint="@{book.isBooked == true ? @color/yellow_200 : @color/black}"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -68,14 +69,17 @@
 
                     <TextView
                         android:id="@+id/tv_name"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="6dp"
+                        android:layout_marginEnd="12dp"
                         android:layout_marginTop="12dp"
                         tools:text="대도시의 사랑법"
                         android:text="@{book.title}"
                         android:textColor="@color/black"
+                        android:lineSpacingExtra="6dp"
                         app:layout_constraintStart_toEndOf="@id/tv_nameHint"
+                        app:layout_constraintEnd_toStartOf="@id/iv_bookMark"
                         app:layout_constraintTop_toTopOf="parent"/>
 
                     <TextView
@@ -84,7 +88,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         tools:text="박상영 저"
-                        android:text="@{book.author + '저'}"
+                        android:text="@{book.author + ' ' + '저'}"
                         android:textColor="#888"
                         android:textSize="10dp"
                         app:layout_constrainedWidth="true"

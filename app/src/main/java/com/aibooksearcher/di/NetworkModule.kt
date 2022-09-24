@@ -5,8 +5,9 @@ import com.aibooksearcher.constant.NetworkConstant
 import com.aibooksearcher.data.datasource.ApiDataSource
 import com.aibooksearcher.data.ApiService
 import com.aibooksearcher.data.datasource.ApiDataSourceImpl
+import com.aibooksearcher.data.local.dao.BookDao
 import com.aibooksearcher.data.repository.ApiRepository
-import com.aibooksearcher.data.response.ApiRepositoryImpl
+import com.aibooksearcher.data.repository.ApiRepositoryImpl
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -98,7 +99,10 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideApiRepository(apiDataSource: ApiDataSource): ApiRepository {
-        return ApiRepositoryImpl(apiDataSource)
+    fun provideApiRepository(
+        apiDataSource: ApiDataSource,
+        bookDao: BookDao
+    ): ApiRepository {
+        return ApiRepositoryImpl(apiDataSource, bookDao)
     }
 }

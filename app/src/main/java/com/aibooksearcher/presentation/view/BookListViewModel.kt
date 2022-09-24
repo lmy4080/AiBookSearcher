@@ -3,7 +3,7 @@ package com.aibooksearcher.presentation.view
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.aibooksearcher.data.repository.ApiRepository
-import com.aibooksearcher.presentation.state.BookUiState
+import com.aibooksearcher.presentation.state.BookListUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -17,13 +17,13 @@ class BookListViewModel @Inject constructor(
     private val repository: ApiRepository
 ): ViewModel() {
 
-    private val _uiState: MutableStateFlow<BookUiState> = MutableStateFlow(BookUiState())
-    val uiState: StateFlow<BookUiState> = _uiState.asStateFlow()
+    private val _uiState: MutableStateFlow<BookListUiState> = MutableStateFlow(BookListUiState())
+    val uiState: StateFlow<BookListUiState> = _uiState.asStateFlow()
 
     fun getBookList(keyword: String) {
         viewModelScope.launch {
             try {
-                val bookList = repository.getBookList(
+                val bookList = repository.getBookListFromNetwork(
                     keyword,
                     100,
                     1

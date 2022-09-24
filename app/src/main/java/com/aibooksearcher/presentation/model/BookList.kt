@@ -19,4 +19,5 @@ data class Book(
     val pubdate: String,
     val isbn: String,
     val description: String,
+    var isBooked: Boolean
 ): Serializable
