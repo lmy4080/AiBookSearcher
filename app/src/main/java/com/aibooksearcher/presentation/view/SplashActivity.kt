@@ -1,4 +1,4 @@
-package com.aibooksearcher.presentation
+package com.aibooksearcher.presentation.view
 
 import android.annotation.SuppressLint
 import android.content.Intent

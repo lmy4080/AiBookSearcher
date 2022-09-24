@@ -3,7 +3,7 @@ package com.aibooksearcher.data.response
 import com.aibooksearcher.data.datasource.ApiDataSource
 import com.aibooksearcher.data.repository.ApiRepository
 import com.aibooksearcher.mapper.toPresentation
-import com.aibooksearcher.presentation.BookList
+import com.aibooksearcher.presentation.model.BookList
 import javax.inject.Inject
 
 class ApiRepositoryImpl @Inject constructor(

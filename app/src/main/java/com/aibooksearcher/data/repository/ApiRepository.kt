@@ -1,6 +1,6 @@
 package com.aibooksearcher.data.repository
 
-import com.aibooksearcher.presentation.BookList
+import com.aibooksearcher.presentation.model.BookList
 
 interface ApiRepository {
 

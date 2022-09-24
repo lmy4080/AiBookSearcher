@@ -1,4 +1,4 @@
-package com.aibooksearcher.presentation
+package com.aibooksearcher.presentation.model
 
 data class BookList(
     val total: Int,

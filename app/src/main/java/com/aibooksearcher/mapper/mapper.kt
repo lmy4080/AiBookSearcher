@@ -2,8 +2,8 @@ package com.aibooksearcher.mapper
 
 import com.aibooksearcher.data.response.BookListResponse
 import com.aibooksearcher.data.response.BookResponse
-import com.aibooksearcher.presentation.Book
-import com.aibooksearcher.presentation.BookList
+import com.aibooksearcher.presentation.model.Book
+import com.aibooksearcher.presentation.model.BookList
 
 fun BookListResponse.toPresentation() = BookList(
     total = total,

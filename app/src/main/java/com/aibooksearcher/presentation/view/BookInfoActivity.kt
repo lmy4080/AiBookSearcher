@@ -1,4 +1,4 @@
-package com.aibooksearcher.presentation
+package com.aibooksearcher.presentation.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
