@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="book"
+            type="com.aibooksearcher.presentation.model.Book" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray_200"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:padding="16dp"
+            android:background="@drawable/r15_white"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_thumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                app:glideCorner="@{book.image}"
+                app:layout_constraintDimensionRatio="w, 1:1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:background="@android:color/holo_orange_dark"/>
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                tools:text="대도시의 사랑법"
+                android:text="@{book.title}"
+                android:textColor="@color/black"
+                android:maxLines="1"
+                android:ellipsize="end"
+                app:layout_constraintStart_toStartOf="@id/iv_thumbnail"
+                app:layout_constraintEnd_toEndOf="@id/iv_thumbnail"
+                app:layout_constraintTop_toBottomOf="@id/iv_thumbnail"/>
+
+            <TextView
+                android:id="@+id/tv_author"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                tools:text="박상영 저"
+                android:text="@{book.author + '저'}"
+                android:textColor="#888"
+                android:textSize="10dp"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintStart_toStartOf="@id/iv_thumbnail"
+                app:layout_constraintEnd_toEndOf="@id/iv_thumbnail"
+                app:layout_constraintTop_toBottomOf="@id/tv_name"/>
+
+            <TextView
+                android:id="@+id/tv_publisher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                tools:text="창비"
+                android:text="@{book.publisher}"
+                android:textColor="#888"
+                android:textSize="10dp"
+                app:layout_constraintStart_toStartOf="@id/iv_thumbnail"
+                app:layout_constraintTop_toBottomOf="@id/tv_author"/>
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="6dp"
+                android:background="#ddd"
+                app:layout_constraintStart_toEndOf="@id/tv_publisher"
+                app:layout_constraintTop_toTopOf="@id/tv_publisher"
+                app:layout_constraintBottom_toBottomOf="@id/tv_publisher"/>
+
+            <TextView
+                android:id="@+id/tv_publishedAt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="12dp"
+                tools:text="2019년 06월 28일"
+                android:text="@{book.pubdate}"
+                android:textColor="#888"
+                android:textSize="10dp"
+                app:layout_constraintStart_toEndOf="@id/view2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_publisher"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

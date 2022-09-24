@@ -22,6 +22,12 @@ class HomeActivity : AppCompatActivity() {
 
         with(binding) {
 
+            with(clBookMarkList) {
+                setOnClickListener {
+                    startActivity(Intent(this@HomeActivity, BookMarkListActivity::class.java))
+                }
+            }
+
             with(lavRecognition) {
                 repeatCount = LottieDrawable.INFINITE
 
@@ -40,13 +46,14 @@ class HomeActivity : AppCompatActivity() {
 
         if(requestCode == 100 || resultCode == RESULT_OK) {
 
-            val keyword = data?.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)?.get(0).toString()
-            if(keyword.isBlank()) {
-                return
-            } else {
-                startActivity(Intent(this, BookListActivity::class.java).apply {
-                    putExtra("keyword", data?.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)?.get(0).toString())
-                })
+            data?.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)?.get(0)?.let { keyword ->
+                if(keyword.isBlank()) {
+                    return
+                } else {
+                    startActivity(Intent(this, BookListActivity::class.java).apply {
+                        putExtra("keyword", keyword)
+                    })
+                }
             }
         }
     }

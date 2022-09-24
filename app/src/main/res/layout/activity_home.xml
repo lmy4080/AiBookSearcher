@@ -24,6 +24,40 @@
             android:scaleY="1.25"
             app:lottie_colorFilter="@color/white"/>
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_bookMarkList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:layout_marginTop="12dp"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_bookMarkList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:translationY="1dp"
+                app:srcCompat="@drawable/ic_baseline_stars_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="즐겨찾기 확인"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@id/iv_bookMarkList"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
         <ImageView
             android:layout_width="75dp"
             android:layout_height="75dp"

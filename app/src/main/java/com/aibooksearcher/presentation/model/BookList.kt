@@ -16,7 +16,7 @@ data class Book(
     val author: String,
     val discount: String,
     val publisher: String,
-    val pubdate: String,
+    var pubdate: String,
     val isbn: String,
     val description: String,
     var isBooked: Boolean

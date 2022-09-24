@@ -5,23 +5,18 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import com.aibooksearcher.R
 import com.aibooksearcher.base.BaseViewHolder
-import com.aibooksearcher.databinding.ItemBookForListBinding
-import com.aibooksearcher.extension.toDate
+import com.aibooksearcher.databinding.ItemBookMarkBinding
 import com.aibooksearcher.presentation.model.Book
 
-class BookListAdapter: ListAdapter<Book, BaseViewHolder>(BOOK_LIST_COMPARATOR) {
+class BookMarkListAdapter: ListAdapter<Book, BaseViewHolder>(BOOK_MARK_LIST_COMPARATOR) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        BaseViewHolder(ItemBookForListBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        BaseViewHolder(ItemBookMarkBinding.inflate(LayoutInflater.from(parent.context), parent, false))
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
         getItem(position)?.run item@ {
-            with(holder.binding as ItemBookForListBinding) {
-                this@item.apply {
-                    pubdate = pubdate.toDate(holder.itemView.context.getString(R.string.dateFormat)) ?: ""
-                }
+            with(holder.binding as ItemBookMarkBinding) {
                 book = this@item
 
                 with(holder.itemView) {
@@ -36,7 +31,7 @@ class BookListAdapter: ListAdapter<Book, BaseViewHolder>(BOOK_LIST_COMPARATOR) {
     }
 
     companion object {
-        private val BOOK_LIST_COMPARATOR = object: DiffUtil.ItemCallback<Book>() {
+        private val BOOK_MARK_LIST_COMPARATOR = object: DiffUtil.ItemCallback<Book>() {
             override fun areItemsTheSame(oldItem: Book, newItem: Book) =
                 oldItem.isbn == newItem.isbn
 
