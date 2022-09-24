@@ -1,5 +1,6 @@
 package com.aibooksearcher.presentation.view
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -19,7 +20,11 @@ class BookListAdapter: ListAdapter<Book, BaseViewHolder>(BOOK_LIST_COMPARATOR) {
                 book = this@item
 
                 with(holder.itemView) {
-
+                    setOnClickListener {
+                        context.startActivity(Intent(context, BookInfoActivity::class.java).apply {
+                            putExtra("bookModel", this@item)
+                        })
+                    }
                 }
             }
         }

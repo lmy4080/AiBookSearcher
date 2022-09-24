@@ -1,5 +1,7 @@
 package com.aibooksearcher.presentation.model
 
+import java.io.Serializable
+
 data class BookList(
     val total: Int,
     val start: Int,
@@ -17,4 +19,4 @@ data class Book(
     val pubdate: String,
     val isbn: String,
     val description: String,
-)
+): Serializable
