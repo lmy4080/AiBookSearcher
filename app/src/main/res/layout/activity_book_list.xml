@@ -4,6 +4,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/layout"
+        tools:visibility="visible"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/gray_200"
@@ -35,6 +38,8 @@
             app:layout_constraintTop_toBottomOf="@id/tv_totalBookCount"/>
 
         <TextView
+            tools:visibility="visible"
+            android:visibility="gone"
             android:id="@+id/tv_shopping"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -48,6 +53,8 @@
             app:layout_constraintBottom_toBottomOf="@id/tv_search"/>
 
         <androidx.recyclerview.widget.RecyclerView
+            tools:visibility="visible"
+            android:visibility="gone"
             android:id="@+id/rv_bookList"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -58,6 +65,18 @@
             tools:listitem="@layout/item_book_for_list"
             app:layout_constraintTop_toBottomOf="@id/tv_search"
             app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            tools:visibility="gone"
+            android:visibility="gone"
+            android:id="@+id/tv_empty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:text="검색 결과가 존재하지 않습니다."
+            android:textColor="@color/black"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/tv_search"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,9 +1,9 @@
 package com.aibooksearcher.presentation.view
 
 import android.os.Bundle
-import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -33,16 +33,36 @@ class BookListActivity : AppCompatActivity() {
 
                     with(binding) {
 
+                        with(layout) {
+                            isVisible = it.bookList != null
+                        }
+
                         with(tvTotalBookCount) {
-                            text = "총 ${it.bookTotalCount}건"
+                            it.bookTotalCount?.let {
+                                text = "총 ${it}건"
+                            }
                         }
 
                         with(tvSearch) {
-                            text = "도서 검색 결과\n'${it.keyword}'"
+                            it.keyword?.let {
+                                text = "도서 검색 결과\n'${it}'"
+                            }
                         }
 
                         with(rvBookList) {
-                            bookListAdapter.submitList(it.bookList)
+                            isVisible = !it.bookList.isNullOrEmpty()
+                        }
+
+                        with(tvEmpty) {
+                            isVisible = it.bookList.isNullOrEmpty()
+                        }
+
+                        with(tvShopping) {
+                            isVisible = !it.bookList.isNullOrEmpty()
+                        }
+
+                        it.bookList?.let { list ->
+                            bookListAdapter.submitList(list)
                         }
                     }
                 }
