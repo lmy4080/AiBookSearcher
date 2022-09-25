@@ -6,6 +6,7 @@ import com.aibooksearcher.data.local.entity.BookEntity
 import com.aibooksearcher.mapper.toPresentation
 import com.aibooksearcher.presentation.model.Book
 import com.aibooksearcher.presentation.model.BookList
+import com.aibooksearcher.presentation.model.MarketItemList
 import javax.inject.Inject
 
 class ApiRepositoryImpl @Inject constructor(
@@ -18,7 +19,7 @@ class ApiRepositoryImpl @Inject constructor(
             query,
             display,
             start
-        ).toPresentation()
+        )
     }
 
     override suspend fun getBookListFromCache(): List<Book> {
@@ -33,5 +34,11 @@ class ApiRepositoryImpl @Inject constructor(
         bookDao.deleteComment(isbn)
     }
 
-
+    override suspend fun getMarketItemList(query: String, display: Int, start: Int): MarketItemList {
+        return apiDataSource.getMarketItemList(
+            query,
+            display,
+            start
+        )
+    }
 }

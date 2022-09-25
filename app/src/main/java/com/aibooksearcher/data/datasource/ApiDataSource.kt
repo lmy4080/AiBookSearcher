@@ -1,6 +1,7 @@
 package com.aibooksearcher.data.datasource
 
-import com.aibooksearcher.data.response.BookListResponse
+import com.aibooksearcher.presentation.model.BookList
+import com.aibooksearcher.presentation.model.MarketItemList
 
 interface ApiDataSource {
 
@@ -8,5 +9,11 @@ interface ApiDataSource {
         query: String,
         display: Int,
         start: Int,
-    ): BookListResponse
+    ): BookList
+
+    suspend fun getMarketItemList(
+        query: String,
+        display: Int,
+        start: Int,
+    ): MarketItemList
 }

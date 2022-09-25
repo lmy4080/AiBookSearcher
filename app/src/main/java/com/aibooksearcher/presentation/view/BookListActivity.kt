@@ -1,5 +1,6 @@
 package com.aibooksearcher.presentation.view
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -70,6 +71,14 @@ class BookListActivity : AppCompatActivity() {
         }
 
         with(binding) {
+
+            with(tvShopping) {
+                setOnClickListener {
+                    startActivity(Intent(this@BookListActivity, ShoppingActivity::class.java).apply {
+                        putExtra("keyword", keyword)
+                    })
+                }
+            }
 
             with(rvBookList) {
                 bookListAdapter = BookListAdapter()

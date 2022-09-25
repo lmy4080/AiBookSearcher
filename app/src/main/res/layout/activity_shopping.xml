@@ -10,60 +10,47 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/gray_200"
-        tools:context=".presentation.view.BookListActivity">
+        tools:context=".presentation.view.ShoppingActivity">
 
         <TextView
-            android:id="@+id/tv_totalBookCount"
+            android:id="@+id/tv_shopping"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            tools:text="총 32건"
+            android:text="관련 상품 모아보기"
             android:textSize="16dp"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
-            android:id="@+id/tv_search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            tools:text="도서 검색 결과\n '대도시의 사랑법'"
-            android:textSize="16dp"
-            android:textColor="@color/black"
-            android:lineSpacingExtra="6dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_totalBookCount"/>
-
-        <TextView
-            tools:visibility="visible"
-            android:visibility="gone"
-            android:id="@+id/tv_shopping"
+            android:id="@+id/tv_totalShoppingCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginTop="16dp"
-            android:text="관련 상품 모아보기"
+            tools:text="총 32건"
             android:textSize="16dp"
-            android:textColor="@android:color/holo_blue_dark"
-            android:lineSpacingExtra="6dp"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/tv_search"/>
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <androidx.recyclerview.widget.RecyclerView
             tools:visibility="visible"
             android:visibility="gone"
-            android:id="@+id/rv_bookList"
+            android:id="@+id/rv_shoppingList"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="16dp"
-            android:paddingBottom="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:paddingBottom="24dp"
             android:clipToPadding="false"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_book_for_list"
-            app:layout_constraintTop_toBottomOf="@id/tv_search"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="3"
+            tools:listitem="@layout/item_market_item"
+            app:layout_constraintTop_toBottomOf="@id/tv_shopping"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
         <TextView
@@ -73,10 +60,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
-            android:text="검색 결과가 존재하지 않습니다."
+            android:text="관련 상품이 존재하지 않습니다."
             android:textColor="@color/black"
             android:gravity="center"
-            app:layout_constraintTop_toBottomOf="@id/tv_search"/>
+            app:layout_constraintTop_toBottomOf="@id/tv_shopping"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
