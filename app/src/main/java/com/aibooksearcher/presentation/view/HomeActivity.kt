@@ -1,9 +1,11 @@
 package com.aibooksearcher.presentation.view
 
 import android.annotation.SuppressLint
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.speech.RecognizerIntent
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.aibooksearcher.R
@@ -50,9 +52,16 @@ class HomeActivity : AppCompatActivity() {
                 if(keyword.isBlank()) {
                     return
                 } else {
-                    startActivity(Intent(this, BookListActivity::class.java).apply {
-                        putExtra("keyword", keyword)
-                    })
+                    val alertDialog = AlertDialog.Builder(this)
+                        .setMessage("[$keyword]으로 도서를 검색하시겠습니까?")
+                        .setPositiveButton("예") { _, _ ->
+                            startActivity(Intent(this, BookListActivity::class.java).apply {
+                                putExtra("keyword", keyword)
+                            })
+                        }
+                        .setNegativeButton("취소") { _, _ -> }
+                        .create()
+                    alertDialog.show()
                 }
             }
         }
